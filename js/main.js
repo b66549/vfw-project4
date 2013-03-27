@@ -1,6 +1,6 @@
 // Name: Rolando Velasco
 // Term: VFW 1303
-// Project Part 3
+// Project Part 4
 
 // Line to wait until the DOM is ready
 window.addEventListener("DOMContentLoaded", function() {
@@ -80,8 +80,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	function displayGoalsList() {
 		
 		if (localStorage.length === 0) {
-			alert("There are no goals to display.");
-			return false;
+			alert("There are no goals in Local Storage so default goal data was added.");
+			displayDefaultGoalsList();
 		}
 		
 		// toggle function to display the data
@@ -123,6 +123,16 @@ window.addEventListener("DOMContentLoaded", function() {
 			}
 		} else {
 			document.getElementById("goals").style.display = "block";
+		}
+	}
+	
+	// function to pull JSON data from json.js file and save into Local Storage as default data
+	function displayDefaultGoalsList() {
+		for (var n in json) {
+			// random number generator
+			var uniqueID = Math.floor(Math.random() * 1000001);
+			
+			localStorage.setItem(uniqueID, JSON.stringify(json[n]));
 		}
 	}
 	
