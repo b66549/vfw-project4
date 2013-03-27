@@ -110,6 +110,10 @@ window.addEventListener("DOMContentLoaded", function() {
 				createSubUList.setAttribute("class", "goalinfo");
 				createListItem.appendChild(createSubUList);
 				
+				// Add image thumbnail to goal based on the type
+				getGoalTypeImage(goalObj.goalType[1], createSubUList);
+				
+				
 				for(var n in goalObj) {
 					var createSubListItem = document.createElement("li");
 					createSubUList.appendChild(createSubListItem);
@@ -124,6 +128,15 @@ window.addEventListener("DOMContentLoaded", function() {
 		} else {
 			document.getElementById("goals").style.display = "block";
 		}
+	}
+	
+	// function to get the image corresponding to the goal type
+	function getGoalTypeImage(imageName, createSubUList) {
+		var imageListItem = document.createElement("li");
+		createSubUList.appendChild(imageListItem);
+		var newGoalTypeImage = document.createElement("img");
+		var setSource = newGoalTypeImage.setAttribute("src", "img/" + imageName + ".png");
+		imageListItem.appendChild(newGoalTypeImage);
 	}
 	
 	// function to pull JSON data from json.js file and save into Local Storage as default data
