@@ -100,6 +100,9 @@ a#clear {
 	margin-right: 0.5em;
 }
 
-.goalinfo {
+ul.goalinfo {
 	margin-bottom: 1em;
+	padding: 0em 1em 1em 1em;
+	border: 1px solid #25282E;
+	background-color: #BABFCB;
 }
